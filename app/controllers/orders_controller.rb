@@ -1,7 +1,12 @@
 class OrdersController < ApplicationController
 
   def show
-    @order = Order.find(params[:id])
+    @line_items = Order.find(params[:id]).line_items.all
+    @email = Order.find(params[:id]).email
+    @total_price = 0
+    @line_items.each do |item|
+      @total_price += item.total_price_cents
+    end
   end
 
   def create
