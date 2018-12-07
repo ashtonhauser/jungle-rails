@@ -2,11 +2,21 @@ class OrdersController < ApplicationController
 
   def show
     @line_items = Order.find(params[:id]).line_items.all
+    @order_number = params[:id]
     @email = Order.find(params[:id]).email
     @total_price = 0
     @line_items.each do |item|
+
       @total_price += item.total_price_cents
     end
+    @url = request.original_url
+    CheckoutMailer.payment_email(
+      email: @email,
+      url: @url,
+      subject: @order_number,
+      items: @line_items,
+      total: @total_price
+    ).deliver_now
   end
 
   def create
