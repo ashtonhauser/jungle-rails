@@ -3,7 +3,9 @@
 A mini e-commerce application built with Rails 4.2
 
 ## Screenshots
-![Home](/public/uploads/home.png)
+![Home](https://github.com/ashtonhauser/jungle-rails/blob/master/public/home.png)
+![Product](https://github.com/ashtonhauser/jungle-rails/blob/master/public/product.png)
+![Signup](https://github.com/ashtonhauser/jungle-rails/blob/master/public/signup.png)
 ## Setup
 
 1. Fork & Clone
