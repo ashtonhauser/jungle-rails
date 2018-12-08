@@ -10,8 +10,4 @@ class ProductsController < ApplicationController
     @rating  = Rating.create
   end
 
-  def new
-
-  end
-
 end
