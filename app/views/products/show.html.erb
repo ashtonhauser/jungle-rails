@@ -26,16 +26,26 @@
       </div>
     </div>
 
-      <% @ratings.each do |rating| %>
-        <div>
-          <h5>
-            Rating: <%= rating.rating %>
-          </h5>
-          <p>
-            Description: <%= rating.description %>
-          </p>
-        </div>
+    <div>
+      <%= form_for([@product, @rating]) do |f| %>
+        <%= f.label :rating %>
+        <%= f.select :rating, options_for_select(["1", "2", "3", "4", "5"]) %><br />
+        <%= f.label :description %>
+        <%= f.text_area :description %><br />
+        <%= f.submit %>
       <% end %>
+    </div>
+
+    <% @ratings.reverse_each do |rating| %>
+      <div>
+        <h5>
+          Rating: <%= rating.rating %>
+        </h5>
+        <p>
+          Description: <%= rating.description %>
+        </p>
+      </div>
+    <% end %>
 
   </article>
 

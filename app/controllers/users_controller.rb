@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect_to '/'
+    else
+      redirect_to '/users/new'
     end
   end
 
