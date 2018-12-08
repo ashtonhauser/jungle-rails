@@ -36,6 +36,7 @@ puts "Re-creating Products ..."
 Product.destroy_all
 
 cat1.products.create!({
+  id: 1,
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
@@ -44,6 +45,7 @@ cat1.products.create!({
 })
 
 cat1.products.create!({
+  id: 2,
   name:  'Women\'s Zebra pants',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel2.jpg'),
@@ -52,6 +54,7 @@ cat1.products.create!({
 })
 
 cat1.products.create!({
+  id: 3,
   name:  'Hipster Hat',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel3.jpg'),
@@ -60,6 +63,7 @@ cat1.products.create!({
 })
 
 cat1.products.create!({
+  id: 4,
   name:  'Hipster Socks',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel4.jpg'),
@@ -68,6 +72,7 @@ cat1.products.create!({
 })
 
 cat1.products.create!({
+  id: 5,
   name:  'Russian Spy Shoes',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel5.jpg'),
@@ -76,6 +81,7 @@ cat1.products.create!({
 })
 
 cat1.products.create!({
+  id: 6,
   name:  'Human Feet Shoes',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel6.jpg'),
@@ -85,6 +91,7 @@ cat1.products.create!({
 
 
 cat2.products.create!({
+  id: 7,
   name:  'Modern Skateboards',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics1.jpg'),
@@ -93,6 +100,7 @@ cat2.products.create!({
 })
 
 cat2.products.create!({
+  id: 8,
   name:  'Hotdog Slicer',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics2.jpg'),
@@ -101,6 +109,7 @@ cat2.products.create!({
 })
 
 cat2.products.create!({
+  id: 9,
   name:  'World\'s Largest Smartwatch',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('electronics3.jpg'),
@@ -109,6 +118,7 @@ cat2.products.create!({
 })
 
 cat3.products.create!({
+  id: 10,
   name:  'Optimal Sleeping Bed',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture1.jpg'),
@@ -117,6 +127,7 @@ cat3.products.create!({
 })
 
 cat3.products.create!({
+  id: 11,
   name:  'Electric Chair',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture2.jpg'),
@@ -125,12 +136,22 @@ cat3.products.create!({
 })
 
 cat3.products.create!({
+  id: 12,
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
   quantity: 0,
   price: 2_483.75
 })
+
+User.create(first_name: 'Ash', last_name: 'Haus', email: 'ashton.hauser777@gmail.com', password_digest: 123)
+
+product = Product.find(10)
+user = User.find_by(email: 'ashton.hauser777@gmail.com')
+
+Rating.create!(description: "It's okay.", rating: 3, product: product, user: user)
+Rating.create!(description: "It's great!", rating: 4, product: product, user: user)
+Rating.create!(description: "It's terrible!", rating: 1, product: product, user: user)
 
 
 puts "DONE!"
