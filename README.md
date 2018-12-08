@@ -3,7 +3,7 @@
 A mini e-commerce application built with Rails 4.2
 
 ## Screenshots
-![Home](/public/uploads/screenshots/home)
+![Home](/public/uploads/home.png)
 ## Setup
 
 1. Fork & Clone
